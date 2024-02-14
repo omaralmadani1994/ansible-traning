@@ -4,7 +4,7 @@
   remote_user: ubuntu
   vars:
     - dir_name: test
-    - myname: omar
+    - myname:  omar.almadani
     - update: no
 
   vars_prompt:
