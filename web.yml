@@ -42,7 +42,7 @@
       user:
         name: "{{ item }}" 
         state: present 
-      with_item:
+      loop:
        - mahmoud
        - omar 
        - sara
