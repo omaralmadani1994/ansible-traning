@@ -43,6 +43,6 @@
         name: "{{ item }}" 
         state: present 
       with_item:
-      - mahmoud
-      - omar 
-      - sara
+       - mahmoud
+       - omar 
+       - sara
