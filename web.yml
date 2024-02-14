@@ -5,5 +5,5 @@
   tasks:
     - name: install nginx
       apt:
-        name: nginx
+        name: apache2
         state: present
