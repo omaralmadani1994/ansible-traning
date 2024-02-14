@@ -37,3 +37,12 @@
       template:
         src: myconfig.j2
         dest: myconfig
+
+    - name: create uesrs loop 
+      user:
+        name: "{{ item }}" 
+        state: present 
+      with_item:
+      - mahmoud
+      - omar 
+      - sara
