@@ -2,8 +2,25 @@
 - hosts: web
   become: yes
   remote_user: ubuntu
+  vars:
+    - dir_name: test
+
+  vars_prompt:
+    - name: password
+      prompt: What is your password ?
+      private: yes
+
+
   tasks:
-    - name: install nginx
+    - name: install apache2
       apt:
         name: apache2
         state: present
+
+    - name: creat dir 
+      file:
+        path: "{{ dir_name }}"
+        state: directory 
+
+    - name: 
+      command: " ls {{ dir_name }} "
