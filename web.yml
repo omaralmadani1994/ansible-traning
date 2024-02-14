@@ -37,7 +37,7 @@
       template:
         src: myconfig.j2
         dest: myconfig
-      notify: restart nginx
+   #   notify: restart nginx
 
     - name: create uesrs loop 
       user:
