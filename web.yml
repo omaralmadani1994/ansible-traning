@@ -5,6 +5,7 @@
   vars:
     - dir_name: test
     - myname: omar
+    - update: no
 
   vars_prompt:
     - name: password
@@ -25,6 +26,7 @@
     - name: list directory contents 
       command: "ls {{ dir_name }}"
       register: result 
+      when: update=="yes"
 
     - name: print stdout 
       debug: 
