@@ -2,53 +2,12 @@
 - hosts: web
   become: yes
   remote_user: ubuntu
-  vars:
-    - dir_name: test
-    - myname:  omar.almadani
-    - update: no
 
   vars_prompt:
     - name: password
       prompt: What is your password ?
       private: false
 
-  tasks:
-    - name: install apache2
-      apt:
-        name: apache2
-        state: present
 
-    - name: create directory 
-      file:
-        path: "{{ dir_name }}"
-        state: directory 
-
-    - name: list directory contents 
-      command: "ls {{ dir_name }}"
-      register: result 
-      when: update=="yes"
-
-    - name: print stdout 
-      debug: 
-        var: result.stdout
-      when: ansible_facts["os_family"]=="centos"
-
-    - name: copy template
-      template:
-        src: myconfig.j2
-        dest: myconfig
-   #   notify: restart nginx
-
-    - name: create uesrs loop 
-      user:
-        name: "{{ item }}" 
-        state: present 
-      loop:
-       - mahmoud
-       - omar 
-       - sara
-  handlers:
-   - name: restart nginx 
-     service:
-      name: nginx 
-      state: restarted
+  roles:
+    - myrole-web

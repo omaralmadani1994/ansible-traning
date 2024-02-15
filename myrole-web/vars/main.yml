@@ -1,2 +1,5 @@
 ---
 # vars file for myrole-web
+ dir_name: test
+ myname:  omar.almadani
+ update: no
